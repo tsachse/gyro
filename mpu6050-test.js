@@ -8,6 +8,10 @@ setInterval(function(){
   // Test the connection before using.
   if (mpu.testConnection()) {
     console.log(mpu.getMotion6());
+    console.log(mpu.getScaledRotation());
+    console.log(mpu.getScaledAcceleration()); 
+    console.log(mpu.getYRotation());
+    console.log(mpu.getXRotation());
   }
 } , 1000);
 
