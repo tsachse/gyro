@@ -1,0 +1,23 @@
+{
+  "name": "gyro",
+  "version": "1.0.0",
+  "description": "Gyro Test",
+  "main": "mpu6050-test.js",
+  "dependencies": {
+    "i2c": "^0.1.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsachse/gyro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsachse/gyro/issues"
+  },
+  "homepage": "https://github.com/tsachse/gyro"
+}
