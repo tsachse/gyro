@@ -1,4 +1,5 @@
 var mpu6050 = require('./lib/mpu6050');
+//var mpu6050 = require('./lib/mpu6050-fake');
 
 // Instantiate and initialize.
 var mpu = new mpu6050();
