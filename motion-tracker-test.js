@@ -22,7 +22,7 @@ var motion_tracker = new MotionTracker(mpu);
 motion_tracker.run();
 
 motion_tracker.on('data', function(data) {
-  console.log(data);
+  //console.log(data);
   primus.forEach(function (spark, id, connections) {
     spark.write({'mpu6050': data});
   });
