@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -10,118 +10,72 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/three.min.js"></script>
     <script src="/monitor/monitor.js"></script>
-</head>
-<body ng-app="monitor" ng-controller="MonitorCtrl">
-   <div class="container-fluid">
+  </head>
+  <body ng-app="monitor" ng-controller="MonitorCtrl">
+    <div class="container-fluid">
       <!--
-      <p>mpu : {{mpu}}</p>
-      -->
+        <p>mpu : {{mpu}}</p>
+        -->
       <div class="panel panel-default">
-       <div class="panel-heading">
-         <h3 class="panel-title">Gyro</h3>
-       </div>
-       <div class="panel-body">
-         <table class="table table-striped">
+        <div class="panel-heading">
+          <h3 class="panel-title">Gyro</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
             <tbody>
-               <tr>
-                  <th>Gyro scaled</th>
-                  <td>{{mpu.gyro.scaled[0]}}</td>
-                  <td>{{mpu.gyro.scaled[1]}}</td>
-                  <td>{{mpu.gyro.scaled[2]}}</td>
-               </tr>
-               <tr>
-                  <th>Gyro delta</th>
-                  <td>{{mpu.gyro.delta[0]}}</td>
-                  <td>{{mpu.gyro.delta[1]}}</td>
-                  <td>{{mpu.gyro.delta[2]}}</td>
-               </tr>
-               <tr>
-                  <th>Gyro rotation</th>
-                  <td>{{mpu.gyro.rotation[0]}}</td>
-                  <td>{{mpu.gyro.rotation[1]}}</td>
-                  <td>{{mpu.gyro.rotation[2]}}</td>
-               </tr>           
+              <tr>
+                <th>Gyro scaled</th>
+                <td>{{mpu.gyro.scaled[0]}}</td>
+                <td>{{mpu.gyro.scaled[1]}}</td>
+                <td>{{mpu.gyro.scaled[2]}}</td>
+              </tr>
+              <tr>
+                <th>Gyro delta</th>
+                <td>{{mpu.gyro.delta[0]}}</td>
+                <td>{{mpu.gyro.delta[1]}}</td>
+                <td>{{mpu.gyro.delta[2]}}</td>
+              </tr>
+              <tr>
+                <th>Gyro rotation</th>
+                <td>{{mpu.gyro.rotation[0]}}</td>
+                <td>{{mpu.gyro.rotation[1]}}</td>
+                <td>{{mpu.gyro.rotation[2]}}</td>
+              </tr>
             </tbody>
-         </table>
-       </div>
+          </table>
+        </div>
       </div>
       <div class="panel panel-default">
-       <div class="panel-heading">
-         <h3 class="panel-title">Accel</h3>
-       </div>
-       <div class="panel-body">
-         <table class="table table-striped">
+        <div class="panel-heading">
+          <h3 class="panel-title">Accel</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
             <tbody>
-               <tr>
-                  <th>Accel scaled</th>
-                  <td>{{mpu.accel.scaled[0]}}</td>
-                  <td>{{mpu.accel.scaled[1]}}</td>
-                  <td>{{mpu.accel.scaled[2]}}</td>
-               </tr>
-               <tr>
-                  <th>Accel rotation</th>
-                  <td>{{mpu.accel.x_rotation}}</td>
-                  <td>{{mpu.accel.y_rotation}}</td>
-                  <td> </td>
-               </tr>           
+              <tr>
+                <th>Accel scaled</th>
+                <td>{{mpu.accel.scaled[0]}}</td>
+                <td>{{mpu.accel.scaled[1]}}</td>
+                <td>{{mpu.accel.scaled[2]}}</td>
+              </tr>
+              <tr>
+                <th>Accel rotation</th>
+                <td>{{mpu.accel.x_rotation}}</td>
+                <td>{{mpu.accel.y_rotation}}</td>
+                <td></td>
+              </tr>
             </tbody>
-         </table>
-       </div>
-      </div>          
+          </table>
+        </div>
+      </div>
     </div>
-      <div class="panel panel-default">
-       <div class="panel-heading">
-         <h3 class="panel-title">THREE.js</h3>
-       </div>
-       <div class="panel-body">
-         <canvas id="accelCanvas" width="400" height="400"></canvas>
-       </div>
-      </div> 
-<script>
-
-    var canvas, scene, camera, renderer;
-    var geometry, material, mesh;
-
-    // init();
-    // animate();
-
-    function init() {
-
-        scene = new THREE.Scene();
-
-        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 500;
-
-        geometry = new THREE.BoxGeometry( 200, 100, 50 );
-        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
-
-        mesh = new THREE.Mesh( geometry, material );
-        scene.add( mesh );
-
-        //renderer = new THREE.WebGLRenderer();
-        //renderer.setSize( window.innerWidth, window.innerHeight );
-        
-        canvas = document.getElementById("accelCanvas");
-        
-        renderer = new THREE.WebGLRenderer({canvas:canvas});
-        renderer.setSize(canvas.width, canvas.height);
-        renderer.render(scene, camera);
-
-        //document.body.appendChild( renderer.domElement );
-
-    }
-
-    function animate() {
-
-        requestAnimationFrame( animate );
-
-        mesh.rotation.x += 0.01;
-        mesh.rotation.y += 0.02;
-
-        renderer.render( scene, camera );
-
-    }
-
-</script>      
-</body>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">THREE.js</h3>
+      </div>
+      <div class="panel-body">
+        <canvas id="gyroCanvas" width="400" height="400"></canvas>
+      </div>
+    </div>
+  </body>
 </html>
