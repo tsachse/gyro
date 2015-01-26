@@ -13,68 +13,77 @@
   </head>
   <body ng-app="monitor" ng-controller="MonitorCtrl">
     <div class="container-fluid">
-      <!--
-        <p>mpu : {{mpu}}</p>
-        -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Gyro</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-striped">
-            <tbody>
-              <tr>
-                <th>Gyro scaled</th>
-                <td>{{mpu.gyro.scaled[0]}}</td>
-                <td>{{mpu.gyro.scaled[1]}}</td>
-                <td>{{mpu.gyro.scaled[2]}}</td>
-              </tr>
-              <tr>
-                <th>Gyro delta</th>
-                <td>{{mpu.gyro.delta[0]}}</td>
-                <td>{{mpu.gyro.delta[1]}}</td>
-                <td>{{mpu.gyro.delta[2]}}</td>
-              </tr>
-              <tr>
-                <th>Gyro rotation</th>
-                <td>{{mpu.gyro.rotation[0]}}</td>
-                <td>{{mpu.gyro.rotation[1]}}</td>
-                <td>{{mpu.gyro.rotation[2]}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="row">
+	<div class="col-md-6">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Gyro</h3>
+	    </div>
+	    <div class="panel-body">
+	      <table class="table table-striped">
+		<tbody>
+		  <tr>
+		    <th>Gyro scaled</th>
+		    <td>{{mpu.gyro.scaled[0].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.scaled[1].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.scaled[2].toFixed(4)}}</td>
+		  </tr>
+		  <tr>
+		    <th>Gyro delta</th>
+		    <td>{{mpu.gyro.delta[0].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.delta[1].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.delta[2].toFixed(4)}}</td>
+		  </tr>
+		  <tr>
+		    <th>Gyro rotation</th>
+		    <td>{{mpu.gyro.rotation[0].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.rotation[1].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.rotation[2].toFixed(4)}}</td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+	  </div>
+	</div>
+	<div class="col-md-6">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Gyro 3D</h3>
+	    </div>
+	    <div class="panel-body">
+	      <canvas id="gyroCanvas" width="400" height="400"></canvas>
+	    </div>
+	  </div>
+	</div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Accel</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-striped">
-            <tbody>
-              <tr>
-                <th>Accel scaled</th>
-                <td>{{mpu.accel.scaled[0]}}</td>
-                <td>{{mpu.accel.scaled[1]}}</td>
-                <td>{{mpu.accel.scaled[2]}}</td>
-              </tr>
-              <tr>
-                <th>Accel rotation</th>
-                <td>{{mpu.accel.x_rotation}}</td>
-                <td>{{mpu.accel.y_rotation}}</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">THREE.js</h3>
-      </div>
-      <div class="panel-body">
-        <canvas id="gyroCanvas" width="400" height="400"></canvas>
+      <div class="row">
+	<div class="col-md-6">
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Accel</h3>
+	    </div>
+	    <div class="panel-body">
+	      <table class="table table-striped">
+		<tbody>
+		  <tr>
+		    <th>Accel scaled</th>
+		    <td>{{mpu.accel.scaled[0].toFixed(4)}}</td>
+		    <td>{{mpu.accel.scaled[1].toFixed(4)}}</td>
+		    <td>{{mpu.accel.scaled[2].toFixed(4)}}</td>
+		  </tr>
+		  <tr>
+		    <th>Accel rotation</th>
+		    <td>{{mpu.accel.x_rotation.toFixed(4)}}</td>
+		    <td>{{mpu.accel.y_rotation.toFixed(4)}}</td>
+		    <td></td>
+		  </tr>
+		</tbody>
+	      </table>
+	    </div>
+	  </div>
+	</div>
+	<div class="col-md-6">
+	</div>
       </div>
     </div>
   </body>
