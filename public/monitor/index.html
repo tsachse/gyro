@@ -23,22 +23,22 @@
 	      <table class="table table-striped">
 		<tbody>
 		  <tr>
-		    <th>Gyro scaled</th>
+		    <th></th>
+		    <th>x (Roll)</th>
+		    <th>y (Pitch)</th>
+		    <th>x (Yaw)</th>
+		  </tr>
+		  <tr>
+		    <th>Scaled [rad/sec]</th>
 		    <td>{{mpu.gyro.scaled[0].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.scaled[1].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.scaled[2].toFixed(4)}}</td>
 		  </tr>
 		  <tr>
-		    <th>Gyro delta</th>
+		    <th>Rotation [rad]</th>
 		    <td>{{mpu.gyro.delta[0].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.delta[1].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.delta[2].toFixed(4)}}</td>
-		  </tr>
-		  <tr>
-		    <th>Gyro rotation</th>
-		    <td>{{mpu.gyro.rotation[0].toFixed(4)}}</td>
-		    <td>{{mpu.gyro.rotation[1].toFixed(4)}}</td>
-		    <td>{{mpu.gyro.rotation[2].toFixed(4)}}</td>
 		  </tr>
 		</tbody>
 	      </table>
@@ -70,15 +70,27 @@
 	      <table class="table table-striped">
 		<tbody>
 		  <tr>
-		    <th>Accel scaled</th>
+		    <th></th>
+		    <th>x (Roll)</th>
+		    <th>y (Pitch)</th>
+		    <th>x (Yaw)</th>
+		  </tr>
+		  <tr>
+		    <th>Scaled [rad]</th>
 		    <td>{{mpu.accel.scaled[0].toFixed(4)}}</td>
 		    <td>{{mpu.accel.scaled[1].toFixed(4)}}</td>
 		    <td>{{mpu.accel.scaled[2].toFixed(4)}}</td>
 		  </tr>
 		  <tr>
-		    <th>Accel rotation</th>
+		    <th>Rotation [rad]</th>
 		    <td>{{mpu.accel.x_rotation.toFixed(4)}}</td>
 		    <td>{{mpu.accel.y_rotation.toFixed(4)}}</td>
+		    <td></td>
+		  </tr>
+		  <tr>
+		    <th>Rotation [degrees]</th>
+		    <td>{{mpu.accel.x_rotation_degrees.toFixed(4)}}</td>
+		    <td>{{mpu.accel.y_rotation_degrees.toFixed(4)}}</td>
 		    <td></td>
 		  </tr>
 		</tbody>
