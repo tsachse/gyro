@@ -36,9 +36,9 @@ angular.module('monitor', [])
     $scope.primus.on('data', function received(data) {
       $scope.mpu = data.mpu6050; 
       $scope.$apply();
-      $scope.mesh.rotation.x = $scope.mpu.gyro.delta[0];
-      $scope.mesh.rotation.y = $scope.mpu.gyro.delta[1];
-      $scope.mesh.rotation.z = $scope.mpu.gyro.delta[2];
+      $scope.mesh.rotation.x = $scope.mpu.gyro.rotation[0];
+      $scope.mesh.rotation.y = $scope.mpu.gyro.rotation[1];
+      $scope.mesh.rotation.z = $scope.mpu.gyro.rotation[2];
       $scope.renderer.render(scene, camera);
     });
 
