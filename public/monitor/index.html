@@ -29,16 +29,22 @@
 		    <th>x (Yaw)</th>
 		  </tr>
 		  <tr>
-		    <th>Scaled [rad/sec]</th>
+		    <th>Scaled [&deg;/sec]</th>
 		    <td>{{mpu.gyro.scaled[0].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.scaled[1].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.scaled[2].toFixed(4)}}</td>
 		  </tr>
 		  <tr>
-		    <th>Delta [rad]</th>
+		    <th>Delta [&deg;]</th>
 		    <td>{{mpu.gyro.delta[0].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.delta[1].toFixed(4)}}</td>
 		    <td>{{mpu.gyro.delta[2].toFixed(4)}}</td>
+		  </tr>
+		  <tr>
+		    <th>Rotation [&deg;]</th>
+		    <td>{{mpu.gyro.rotation[0].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.rotation[1].toFixed(4)}}</td>
+		    <td>{{mpu.gyro.rotation[2].toFixed(4)}}</td>
 		  </tr>
 		</tbody>
 	      </table>
@@ -88,7 +94,7 @@
 		    <td></td>
 		  </tr>
 		  <tr>
-		    <th>Rotation [degrees]</th>
+		    <th>Rotation [&deg;]</th>
 		    <td>{{mpu.accel.x_rotation_degrees.toFixed(4)}}</td>
 		    <td>{{mpu.accel.y_rotation_degrees.toFixed(4)}}</td>
 		    <td></td>

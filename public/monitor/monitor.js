@@ -31,14 +31,15 @@ angular.module('monitor', [])
     renderer.render(scene, camera);
     $scope.renderer = renderer;
     $scope.mesh = mesh;
+    $scope.rad_factor = Math.PI / 180;
     
     $scope.primus = new Primus();
     $scope.primus.on('data', function received(data) {
       $scope.mpu = data.mpu6050; 
       $scope.$apply();
-      $scope.mesh.rotation.x = $scope.mpu.gyro.delta[0];
-      $scope.mesh.rotation.y = $scope.mpu.gyro.delta[1];
-      $scope.mesh.rotation.z = $scope.mpu.gyro.delta[2];
+      $scope.mesh.rotation.x = $scope.mpu.gyro.rotation[0] * $scope.rad_factor;
+      $scope.mesh.rotation.y = $scope.mpu.gyro.rotation[1] * $scope.rad_factor;
+      $scope.mesh.rotation.z = $scope.mpu.gyro.rotation[2] * $scope.rad_factor;
       $scope.renderer.render(scene, camera);
     });
 
