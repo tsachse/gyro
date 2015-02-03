@@ -13,8 +13,8 @@ var  primus = new Primus(server, {transformer: 'engine.io'});
 primus.library();
 primus.save(__dirname +'/public/js/primus.js');
 
-var mpu6050 = require('./lib/mpu6050');
-//var mpu6050 = require('./lib/mpu6050-fake');
+//var mpu6050 = require('./lib/mpu6050');
+var mpu6050 = require('./lib/mpu6050-fake');
 var MotionTracker = require('./lib/motion-tracker');
 
 var mpu = new mpu6050();
