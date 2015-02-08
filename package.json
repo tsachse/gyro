@@ -9,7 +9,8 @@
     "express": "^4.11.1",
     "i2c": "^0.1.6",
     "morgan": "^1.5.1",
-    "primus": "^2.4.12"
+    "primus": "^2.4.12",
+    "r-pi-usonic": "^2.4.0"
   },
   "devDependencies": {},
   "scripts": {

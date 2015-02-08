@@ -1,7 +1,8 @@
-var usonic = require('./lib/usonic-fake'); 
+//var usonic = require('./lib/usonic-fake');
+var usonic = require('r-pi-usonic');
 var DistanceChecker = require('./lib/distance-checker');
 
-var sensor = usonic.createSensor(18, 17, 1000);
+var sensor = usonic.createSensor(18, 17, 500);
 var checker = new DistanceChecker(sensor);
 checker.run();
 
