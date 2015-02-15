@@ -10,6 +10,7 @@
     "i2c": "^0.1.6",
     "morgan": "^1.5.1",
     "nanotimer": "^0.3.10",
+    "node-sleep": "0.0.0",
     "onoff": "^1.0.0",
     "primus": "^2.4.12",
     "r-pi-usonic": "^2.4.0"

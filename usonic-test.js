@@ -5,7 +5,7 @@ var USonicDistanceChecker = require('./lib/usonic-distance-checker');
 //var sensor = usonic.createSensor(18, 17, 500);
 //var checker = new DistanceChecker(sensor);
 
-var checker = new USonicDistanceChecker(17,18,500);
+var checker = new USonicDistanceChecker(17,18);
 checker.run();
 
 // setTimeout(function() {
