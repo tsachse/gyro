@@ -3,6 +3,7 @@ angular.module('monitor', [])
   .controller('MonitorCtrl', function ($scope, $http) {
 
     $scope.mpu = {};
+    $scope.hcsr04 = {};
     
     var scene = new THREE.Scene();
 
@@ -35,12 +36,17 @@ angular.module('monitor', [])
     
     $scope.primus = new Primus();
     $scope.primus.on('data', function received(data) {
-      $scope.mpu = data.mpu6050; 
-      $scope.$apply();
-      $scope.mesh.rotation.x = $scope.mpu.gyro.rotation[0] * $scope.rad_factor;
-      $scope.mesh.rotation.y = $scope.mpu.gyro.rotation[1] * $scope.rad_factor;
-      $scope.mesh.rotation.z = $scope.mpu.gyro.rotation[2] * $scope.rad_factor;
-      $scope.renderer.render(scene, camera);
+      if("mpu6050" in data) {
+	$scope.mpu = data.mpu6050; 
+	$scope.$apply();
+	$scope.mesh.rotation.x = $scope.mpu.gyro.rotation[0] * $scope.rad_factor;
+	$scope.mesh.rotation.y = $scope.mpu.gyro.rotation[1] * $scope.rad_factor;
+	$scope.mesh.rotation.z = $scope.mpu.gyro.rotation[2] * $scope.rad_factor;
+	$scope.renderer.render(scene, camera);
+      }
+      if("hcsr04" in data) {
+	$scope.hcsr04 = data.hcsr04;
+      }
     });
 
   });
