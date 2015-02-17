@@ -9,7 +9,7 @@ angular.module('monitor', [])
 
     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
     //camera.position.x = 500;
-    camera.position.set( 300, 300, 300 );
+    camera.position.set( 500, 500, 500 );
     // z-Achse nach oben
     camera.up = new THREE.Vector3( 0, 0, 1 );
     camera.lookAt(new THREE.Vector3( 0, 0, 0 ));
@@ -19,11 +19,17 @@ angular.module('monitor', [])
 
     var mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
-    scene.add(new THREE.AxisHelper(400));
+    scene.add(new THREE.AxisHelper(500));
 
-    var gridXY = new THREE.GridHelper(400, 30);
+    var gridXY = new THREE.GridHelper(500, 30);
     gridXY.rotation.x = Math.PI/2;
-    scene.add(gridXY)
+    scene.add(gridXY);
+
+    var gridYZ = new THREE.GridHelper(500, 30);
+    gridYZ.position.set( -1500,-500,0 );
+    gridYZ.rotation.z = Math.PI/2;
+    gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0x00ff00) );
+    scene.add(gridYZ);
     
     var canvas = document.getElementById("gyroCanvas");
         
