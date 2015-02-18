@@ -9,7 +9,7 @@ angular.module('monitor', [])
 
     var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
     //camera.position.x = 500;
-    camera.position.set( 500, 500, 500 );
+    camera.position.set( -400, -400, 400 );
     // z-Achse nach oben
     camera.up = new THREE.Vector3( 0, 0, 1 );
     camera.lookAt(new THREE.Vector3( 0, 0, 0 ));
@@ -26,9 +26,9 @@ angular.module('monitor', [])
     scene.add(gridXY);
 
     var gridYZ = new THREE.GridHelper(500, 30);
-    gridYZ.position.set( -1500,-500,0 );
+    gridYZ.position.set( 1500,500,0 );
     gridYZ.rotation.z = Math.PI/2;
-    gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0x00ff00) );
+    gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0x000000) );
     scene.add(gridYZ);
     
     var canvas = document.getElementById("gyroCanvas");
@@ -52,6 +52,18 @@ angular.module('monitor', [])
       }
       if("hcsr04" in data) {
 	$scope.hcsr04 = data.hcsr04;
+	$scope.obstacle =  $scope.hcsr04.distance * 10 - 100;
+	if($scope.obstacle > 500) {
+	  gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0x00ff00) );
+	}
+	if($scope.obstacle < 300) {
+	  gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0xffff00) );
+	}
+	if($scope.obstacle < 100) {
+	  gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0xff0000) );
+	}
+	gridYZ.position.x = $scope.obstacle;
+
       }
     });
 
