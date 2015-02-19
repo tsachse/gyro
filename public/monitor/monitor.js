@@ -52,7 +52,7 @@ angular.module('monitor', [])
       }
       if("hcsr04" in data) {
 	$scope.hcsr04 = data.hcsr04;
-	$scope.obstacle =  $scope.hcsr04.distance * 10 - 100;
+	$scope.obstacle =  $scope.hcsr04.distance * 10 ;
 	if($scope.obstacle > 500) {
 	  gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0x00ff00) );
 	}
@@ -62,7 +62,7 @@ angular.module('monitor', [])
 	if($scope.obstacle < 100) {
 	  gridYZ.setColors( new THREE.Color(0xffffff), new THREE.Color(0xff0000) );
 	}
-	gridYZ.position.x = $scope.obstacle;
+	gridYZ.position.x = $scope.obstacle + 500;
 
       }
     });
