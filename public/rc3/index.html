@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang=de>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/js/angular.min.js"></script>
+  <script src="/js/angular-resource.min.js"></script>
+  <script src="/rc3/rc3.js"></script>
+</head>
+<body ng-app="rc3" ng-controller="RC3Ctrl">
+  <div class="container-fluid" ng-view>
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <h3 align=center>{{speed_left}}</h3>
+	    </div>
+	  </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <h3 align=center>{{speed_right}}</h3>
+	    </div>
+	  </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+	<div class="panel panel-default">
+	    <div class="panel-body">
+	      <h3 align=center>{{direction}}</h3>
+	    </div>
+	  </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+	<div class="panel panel-default">
+	    <div class="panel-body">
+	      <button type="button" class="btn btn-info btn-block" ng-click="toggle_start_stop()">
+		<h3>{{start_stop}}</h3>
+	      </button> 
+	    </div>
+	  </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <h5 align=center>{{yaw}} </h5>
+	  </div> 
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <h5 align=center>{{pitch}}</h5>
+	  </div>
+	</div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4">
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <h5 align=center>{{roll}}</h5>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
