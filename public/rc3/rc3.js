@@ -1,24 +1,31 @@
 angular.module('rc3', ['ngResource'])
   .factory('RC3', function ($resource) {
-    var RC3 = $resource('/api/rc3/:direction/:left/:right', 
+    var RC3 = $resource('/api/rc3/:start_stop/:pitch/:roll/:yaw', 
       {
-	 direction : '@direction',
-	 left : '@left',
-	 right : '@right'
+	 start_stop : '@start_stop',
+	 pitch : '@pitch',
+	 roll : '@roll',
+	 yaw : '@yaw'
       });
 
     return RC3;
   })
-  .controller('RC3Ctrl', function($scope, $location){
-    //$scope.cmd = function(direction) {
-      // console.log(direction);
-    //  RC3.get({'id': direction});
-    //}
+  .controller('RC3Ctrl', function($scope, $location,RC3){
+    $scope.cmd = function() {
+      var start_stop = 'STOP';
+      if($scope.started) {
+	start_stop = 'START';
+      }
+      RC3.get({
+	 'start_stop' : start_stop,
+	 'pitch' : $scope.pitch,
+	 'roll' : $scope.roll,
+	 'yaw' : $scope.yaw
+      });
+    }
+
     $scope.start_stop = 'START';
     $scope.started = false;
-    $scope.direction = 'FWD';
-    $scope.speed_left = 0;
-    $scope.speed_right = 0;
     $scope.yaw = 0;
     $scope.pitch = 0;
     $scope.roll = 0;
@@ -26,15 +33,11 @@ angular.module('rc3', ['ngResource'])
       if($scope.started) {
 	$scope.started = false;
 	$scope.start_stop = 'START';
-	$scope.direction = 'FWD';
-	$scope.speed_left = 0;
-	$scope.speed_right = 0;
+	$scope.cmd();
       } else {
 	$scope.started = true;
 	$scope.start_stop = 'STOP';
-	$scope.direction = 'FWD';
-	$scope.speed_left = 0;
-	$scope.speed_right = 0;
+	$scope.cmd();
       }
     }
 
@@ -44,7 +47,9 @@ angular.module('rc3', ['ngResource'])
 	$scope.pitch = Math.round(eventData.beta);
 	$scope.roll = Math.round(eventData.gamma);
 	$scope.$apply();
-
+	if($scope.started) {
+	  $scope.cmd();
+	}
       });
     }
 

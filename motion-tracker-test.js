@@ -7,6 +7,7 @@ const port = 2000;
 app.use(morgan('dev'));
 app.use("/",express.static(__dirname + '/public'));
 
+
 var server = require('http').createServer(app);
 var  primus = new Primus(server, {transformer: 'engine.io'});
 
@@ -33,6 +34,10 @@ motion_tracker.on('data', function(data) {
   });
 });
 
+ motion_tracker.on('tracker', function(data) { 
+   console.log(data);
+ });
+
 var sensor = usonic.createSensor(18, 17, 750);
 var checker = new DistanceChecker(sensor);
 checker.run();
@@ -42,6 +47,12 @@ checker.on("data",function(data) {
   primus.forEach(function (spark, id, connections) {
     spark.write({'hcsr04': data});
   });
+});
+
+app.use('/api/rc1/:cmd/:pitch/:roll/:yaw', function(req, res) {
+  console.log(req.params);
+  motion_tracker.tracker(req.params.yaw);
+  res.status(200).json('OK');
 });
 
 server.listen(port,function() {

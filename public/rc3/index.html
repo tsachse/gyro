@@ -11,31 +11,6 @@
 <body ng-app="rc3" ng-controller="RC3Ctrl">
   <div class="container-fluid" ng-view>
     <div class="row">
-      <div class="col-xs-6 col-sm-6 col-md-6">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    <h3 align=center>{{speed_left}}</h3>
-	    </div>
-	  </div>
-      </div>
-      <div class="col-xs-6 col-sm-6 col-md-6">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    <h3 align=center>{{speed_right}}</h3>
-	    </div>
-	  </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
-	<div class="panel panel-default">
-	    <div class="panel-body">
-	      <h3 align=center>{{direction}}</h3>
-	    </div>
-	  </div>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12">
 	<div class="panel panel-default">
 	    <div class="panel-body">
@@ -47,27 +22,27 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4 col-sm-4 col-md-4">
+      <div class="col-xs-6 col-sm-6 col-md-6">
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	    <h5 align=center>{{yaw}} </h5>
-	  </div> 
-        </div>
-      </div>
-      <div class="col-xs-4 col-sm-4 col-md-4">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    <h5 align=center>{{pitch}}</h5>
+	    <table class="table table-striped">
+	      <tbody>
+		<tr>
+		  <th>Yaw</th>
+		  <td>{{yaw}}</td>
+		</tr>
+		<tr>
+		  <th>Pitch</th>
+		  <td>{{pitch}}</td>
+		</tr>
+		<tr>
+		  <th>Roll</th>
+		  <td>{{roll}}</td>
+		</tr>
+	      </tbody>
+	    </table>
 	  </div>
 	</div>
-      </div>
-      <div class="col-xs-4 col-sm-4 col-md-4">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    <h5 align=center>{{roll}}</h5>
-	  </div>
-	</div>
-      </div>
     </div>
   </div>
 </body>
